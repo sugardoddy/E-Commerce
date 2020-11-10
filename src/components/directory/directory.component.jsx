@@ -1,28 +1,28 @@
+
 import React from 'react';
-
-import MenuItem from '../menu-item/menu-item.component';
-
-import './directory.styles.scss';
+import MenuItem from '../menu-item/menu-item.component'
+import './directory.styles.scss'
 
 class Directory extends React.Component {
-  constructor() {
+  constructor()
+  {
     super();
 
     this.state = {
       sections: [
         {
-          title: 'hats',
-          imageUrl: 'https://i.ibb.co/cvpntL1/hats.png',
+          title: 'topi',
+          imageUrl: 'https://i.ebayimg.com/images/g/wMoAAOSw-RhacJBY/s-l300.jpg',
           id: 1
         },
         {
-          title: 'jackets',
-          imageUrl: 'https://i.ibb.co/px2tCc3/jackets.png',
+          title: 'jaket',
+          imageUrl: 'https://assets.adidas.com/images/w_280,h_280,f_auto,q_auto:sensitive/bd751cd6c6ec4db1b759ac4101879926_9366/ctn-event-hood-pulovr.jpg',
           id: 2
         },
         {
-          title: 'sneakers',
-          imageUrl: 'https://i.ibb.co/0jqHpnp/sneakers.png',
+          title: 'sepatu',
+          imageUrl: 'https://wallpaperaccess.com/full/830639.jpg',
           id: 3
         },
         {
@@ -38,17 +38,19 @@ class Directory extends React.Component {
           id: 5
         }
       ]
-    };
+    }
   }
 
   render() {
-    return (
+    return(
       <div className='directory-menu'>
-        {this.state.sections.map(({ title, imageUrl, id, size }) => (
-          <MenuItem key={id} title={title} imageUrl={imageUrl} size={size} />
-        ))}
+      {
+        this.state.sections.map(({title, imageUrl, size, id}) => (
+          <MenuItem key={id} title={title} imageUrl={imageUrl} size = {size} />
+        ))
+      } 
       </div>
-    );
+    )
   }
 }
 

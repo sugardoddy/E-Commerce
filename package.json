@@ -3,10 +3,18 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@bit/primefaces.primereact.button": "^4.2.0",
+    "@bit/primefaces.primereact.inputtext": "file:./components/inputtext",
+    "@bit/primefaces.primereact.internal.stylelinks": "file:components/internal/stylelinks",
+    "@bit/primefaces.primereact.stylelinks": "file:./components/stylelinks",
+    "@bit/primefaces.primereact.tooltip": "file:components/tooltip",
+    "classnames": "^2.2.6",
+    "firebase": "^6.0.2",
     "node-sass": "4.12.0",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
-    "react-router-dom": "^5.2.0"
+    "react-router-dom": "^5.2.0",
+    "typescript": "^4.0.5"
   },
   "devDependencies": {
     "react-scripts": "^4.0.0"
@@ -31,5 +39,10 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "bit": {
+    "env": {},
+    "componentsDefaultDirectory": "components/{name}",
+    "packageManager": "npm"
   }
 }

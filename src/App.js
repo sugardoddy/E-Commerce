@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import { Switch, Route } from 'react-router-dom'
+import { Switch, Route, Redirect } from 'react-router-dom'
 import { connect } from 'react-redux';
 
 import HomePage from './pages/homepage/homepage.component';
@@ -14,19 +14,19 @@ class App extends React.Component {
   unsubscribeFromAuth = null;
 
   componentDidMount(){
-    const { bitch } = this.props;
+    const { setCurrentUser } = this.props;
     this.unsubscribeFromAuth = auth.onAuthStateChanged(async userAuth => {
       if(userAuth) {
         const userRef = await createUserProfileDocument(userAuth);
         this.setState({currentUser: 'hassan'})
         userRef.onSnapshot(snapShot => {
-          bitch({
+          setCurrentUser({
               id: snapShot.id,
               ...snapShot.data()
           });
         });  
       }
-      bitch(userAuth);
+      setCurrentUser(userAuth);
     });
   }
 
@@ -49,7 +49,12 @@ class App extends React.Component {
   }
   
 }
+
+const mapStateToProps = ({ user }) => ({
+  currentUser: user.currentUser
+})
+
 const mapDispatchToProps = dispatch => ({
-  bitch: user => dispatch(setCurrentUser(user))
+  setCurrentUser: user => dispatch(setCurrentUser(user))
 })
 export default connect(null, mapDispatchToProps)(App);
